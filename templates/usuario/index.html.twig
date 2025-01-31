@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello Usuário!
+{% endblock %}
+
+{% block header %}
+	Listagem de usuário
+{% endblock %}
+
+{% block content %}
+	<table class="w-full text-x">
+		<thead class="bg-gray-500 upercase">
+			<tr>
+				<th>
+					ID</th>
+				<th>
+					USERNAME</th>
+				<th>
+					EMAIL</th>
+			</tr>
+		</thead>
+
+        <tbody class="bg-white border-b border-gray-200 hover:bg-gray-50" >
+            <tr>
+            <td> 01</td>
+            <td> Sofia</td>
+            <td> Sofia@gmail.com</td>
+            </tr>
+        </tbody>
+
+	</table>
+
+
+{% endblock %}
