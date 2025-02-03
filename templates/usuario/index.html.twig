@@ -6,29 +6,20 @@
 {% block header %}
 	Listagem de usuário
 {% endblock %}
-
 {% block content %}
-	<table class="w-full text-x">
-		<thead class="bg-gray-500 upercase">
-			<tr>
-				<th>
-					ID</th>
-				<th>
-					USERNAME</th>
-				<th>
-					EMAIL</th>
-			</tr>
-		</thead>
+	{% set header = {
+	'id':'id',
+	'Username':'Username',
+	'Email':'Email'
+	 } %}
 
-        <tbody class="bg-white border-b border-gray-200 hover:bg-gray-50" >
-            <tr>
-            <td> 01</td>
-            <td> Sofia</td>
-            <td> Sofia@gmail.com</td>
-            </tr>
-        </tbody>
+<div class="float-right">
+<a class=" hover:bg-slate-400 font-mono border-2 border-solid border-gray-500 rounded-lg" href="{{path('app_usuario_create')}}">Cadastrar</a>
+</div>
 
-	</table>
-
-
+	{% include "components/table.html.twig" with {
+		thead: header,
+		contents : users
+	}
+%}
 {% endblock %}
