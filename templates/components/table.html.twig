@@ -19,7 +19,7 @@
 					<td class="text-center">
 						{{content[key]}}</td>
 				{% endfor %}
-                <td class="text-center"> Editar/Deletar</td>
+                <td class="text-center"> <a href="{{path('app_usuario_show', {id:content['id']})}}">Editar</a>/<a href="{{path('app_usuario_delete', {id:content['id']})}}">Deletar</a></td>
 			</tr>
 
 		{% endfor %}

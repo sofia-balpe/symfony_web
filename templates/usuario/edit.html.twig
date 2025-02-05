@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %}
+	Atualização de usuário
+{% endblock %}
+
+{% block header %}Editar usuário
+{% endblock %}
+
+{% block content %}
+<a class=" hover:bg-slate-400 font-mono border-2 border-solid border-gray-500 rounded-lg" href="{{path('app_usuario')}}">Voltar</a>
+	<div class=" grid grid-cols-3 grid-rows-1 gap-9 w-full">
+        <form action="{{path('app_usuario_register')}}" method="post">
+            <input class="hover:bg-gray-200 border-2 border-solid border-gray-400" type="text" placeholder="Username" name="username" value="{{user.username}}">
+            <input class="hover:bg-gray-200 border-2 border-solid border-gray-400" type="email" placeholder="Email de usuário" name="email" value="{{user.email}}">
+            <input class="hover:bg-gray-200 border-2 border-solid border-gray-400" type="text" placeholder="Nome completo" name="fullname" value="{{user.fullname}}">
+            <input class="hover:bg-gray-200 border-2 border-solid border-gray-400" type="password" placeholder="senha de usuário" name="password">
+            <input class="bg-gray-300 hover:bg-gray-500 border-2 border-solid border-gray-600 rounded-lg" type="submit" value="Atualizar">
+        </form>
+    </div>
+
+{% endblock %}
