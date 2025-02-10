@@ -73,5 +73,32 @@ final class UsuarioController extends AbstractController
         return $this->render('usuario/edit.html.twig', ['user'=>$user]);
     }
 
+    #[Route('/usuario/edit/id', name: 'app_usuario_edit', methods:['POST'])]
+    public function editar(Request $request, UserRepository $userRepository, UserPasswordHasherInterface $userPasswordHasher){
     
+        $post = $request->request->all();
+
+        $user = $userRepository->findOneBy(["id"=> $post['inputId']]);
+        $user->setEmail($post['email']);
+        $user->setUsername($post['username']);
+        $user->setFullName($post['fullname']);
+        $user->setRoles([]);
+
+        if (!empty($post['password'])) {
+            $user->setPassword($userPasswordHasher->hashPassword($user, $post['password']));
+        }
+        $this->entityManager->persist($user);
+        $this->entityManager->flush();
+        return $this->redirectToRoute('app_usuario');
+    }
+    
+    // #[Route('/telaLogin', name: 'app_usuario_telaLogin')]
+    // public function acessarLogin(){
+    //     return $this->render('auth/login.html.twig');
+    // }
+
+    // #[Route('/auth', name: 'app_usuario_auth')]
+    // public function register(){
+    //     return $this->render('auth/register.html.twig');
+    // }
 }
