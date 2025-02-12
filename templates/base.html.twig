@@ -24,7 +24,7 @@
 
 				<ul>
 					<li class="mb-2 transform transition hover: translate-x-1">
-						<a href="{{path('app_home')}}" class="block px-4 py-2 hover:bg-gray-700">
+						<a href="{{path('app_usuario_quantidade')}}" class="block px-4 py-2 hover:bg-gray-700">
 							Home
 						</a>
 					</li>
@@ -45,12 +45,13 @@
                 <!-- Header -->
                 <header class="bg-white shadow p-4">
                     <h1 class="text-lg font-bold">{% block header %}Dashboard{% endblock %}</h1>
+					<a href="{{path('app_auth_logout')}}"><button class="bg-slate-400  border-gray-500 rounded-lg float-right ">SAIR</button></a>
                 </header>
 
                 <!-- Content -->
                 <main class="p-6 flex-1">
                     {% block content %}
-
+				
                     {% endblock %}
                 </main>
             </div>

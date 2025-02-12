@@ -17,7 +17,7 @@ security:
             lazy: true
             provider: app_user_provider
             form_login:
-                login_path: app_auth_login
+                login_path: app_auth
                 check_path: app_auth_login
                 default_target_path: app_usuario
 
@@ -30,6 +30,11 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
+        - { path: ^/auth, roles: PUBLIC_ACCESS }
+        - { path: ^/login, roles: PUBLIC_ACCESS }
+
+        - { path: ^/, roles: IS_AUTHENTICATED_FULLY }
+
         # - { path: ^/admin, roles: ROLE_ADMIN }
         # - { path: ^/profile, roles: ROLE_USER }
 
