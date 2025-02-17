@@ -1,0 +1,23 @@
+{% extends "base.html.twig" %}
+
+
+{% block title %}
+	Cadastro de clinte
+{% endblock %}
+
+{% block header %}Cadastro de clientes
+{% endblock %}
+
+{% block content %}
+<a class=" hover:bg-slate-400 font-mono border-2 border-solid border-gray-500 rounded-lg" href="{{path('app_usuario')}}">Voltar</a>
+	<div class=" grid grid-cols-3 grid-rows-1 gap-9 w-full">
+        <form action="{{path('app_cliente_register')}}" method="post">
+            <input class="hover:bg-gray-200 border-2 border-solid border-gray-400" type="text" placeholder="Nome de cliente" name="nome">
+            <input class="hover:bg-gray-200 border-2 border-solid border-gray-400" type="text" placeholder="CPF de cliente" name="cpf">
+            <input class="hover:bg-gray-200 border-2 border-solid border-gray-400" type="text" placeholder="Endereço de cliente" name="endereco">
+            <input class="hover:bg-gray-200 border-2 border-solid border-gray-400" type="text" placeholder="Contato de cliente" name="contato">
+            <input class="bg-gray-300 hover:bg-gray-500 border-2 border-solid border-gray-600 rounded-lg" type="submit" value="Cadastrar">
+        </form>
+    </div>
+
+{% endblock %}

@@ -20,7 +20,8 @@
 
 	{% include "components/table.html.twig" with {
 		thead: header,
-		contents : users
+		contents : users,
+		editLink: 'usuario/show/'
 	}
 %}
 {% endblock %}

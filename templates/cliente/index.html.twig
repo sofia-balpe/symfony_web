@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Listar Clientes!
+{% endblock %}
+
+{% block header %}
+	Listagem de clientes
+{% endblock %}
+{% block content %}
+	
+<div class="float-right">
+
+<a class=" hover:bg-slate-400 font-mono border-2 border-solid border-gray-500 rounded-lg" href="{{path('app_cliente_create')}}">Cadastrar</a>
+</div>
+
+	{% include "components/table.html.twig" with {
+		thead : {'id':'id', 'nome':'Nome', 'endereco':'Endereco', 'contato':'Contato'},
+        contents : cliente,
+        editLink: 'cliente/'
+	}
+%}
+{% endblock %}
